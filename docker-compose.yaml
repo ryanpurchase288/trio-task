@@ -2,6 +2,9 @@ version: '3.7'
 services:
   flask-app:
     build: ./flask-app
+    image: flask-app
+    deploy:
+      replicas: 4
     environment:
       DB_PASS: pass
     ports:
@@ -10,7 +13,9 @@ services:
       protocol: tcp
   database:
     build: ./db
-    container_name: mysql
+    image: db
+    deploy:
+      replicas: 4
     environment:
       MYSQL_ROOT_PASSWORD: root
     ports:
@@ -18,6 +23,8 @@ services:
       published: 3306
   nginx:
     image: nginx:latest
+    deploy:
+      replicas: 4
     ports:
       - target: 80
         published: 80
