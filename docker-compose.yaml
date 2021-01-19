@@ -6,7 +6,7 @@ services:
     deploy:
       replicas: 4
     environment:
-      DB_PASS: pass
+      DB_PASS: 
     ports:
     - target: 5000
       published: 5000
@@ -17,7 +17,7 @@ services:
     deploy:
       replicas: 4
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: 
     ports:
     - target: 3306
       published: 3306
